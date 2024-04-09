@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-// import "./globals.css";
+import { Roboto } from "next/font/google";
+import bg from '../public/Mask.png'
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: '400'
+})
 
 export const metadata: Metadata = {
   title: "Desafio React",
@@ -16,7 +20,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body style={{
+        backgroundImage: `url(${bg.src})`,
+        backgroundPosition: "bottom right",
+        backgroundRepeat: "no-repeat",
+        width: '100%',
+        height: '100%',
+      }} className={roboto.className}>{children}</body>
     </html>
   );
 }

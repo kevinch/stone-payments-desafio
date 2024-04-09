@@ -1,4 +1,6 @@
 import Content from "./Content"
+import Header from "./Header"
+import './globals.css'
 
 async function getData() {
   const res = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL')
@@ -16,10 +18,7 @@ export default async function Home() {
 
   return (
     <main>
-      <header>
-        <h1>Stone currency</h1>
-      </header>
-
+      <Header />
       <Content data={data} />
     </main>
   );

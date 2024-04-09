@@ -26,16 +26,16 @@ function Content(data: any) {
             {!calculated ? (
                 <div>
                     <div>
-                        <label htmlFor="inputDolar">Dolar</label>
+                        <label htmlFor="inputDolar">Dolar</label><br />
                         <input type="number" id="inputDolar" name="inputDolar" required value={dolarValue} onChange={(e: ChangeEvent<HTMLInputElement>) => setDolarValue(e.target.valueAsNumber)} />
                     </div>
 
                     <div>
-                        <label htmlFor="inputTax">Taxa do estado</label>
+                        <label htmlFor="inputTax">Taxa do estado</label><br />
                         <input type="number" id="inputTax" name="inputTax" required value={inputTax} onChange={(e: ChangeEvent<HTMLInputElement>) => setInputTax(e.target.valueAsNumber)} />
                     </div>
 
-                    <fieldset>
+                    <fieldset style={{ margin: "50px 0" }}>
                         <legend>Tipo de compra</legend>
 
                         <div>
@@ -49,7 +49,9 @@ function Content(data: any) {
                     </fieldset>
 
                     <button onClick={() => {
-                        setResult(buyingOption == 'cash' ? buyingWithCash(dolarValue, inputTax, valorDoDolar, 1) : buyingWithCard(dolarValue, inputTax, 5.3, valorDoDolar))
+                        setResult(buyingOption == 'cash'
+                            ? buyingWithCash(dolarValue, inputTax, valorDoDolar, 1.1)
+                            : buyingWithCard(dolarValue, inputTax, 6.4, valorDoDolar))
                         setCalculated(true)
                     }
                     }>Converter</button>
@@ -64,9 +66,10 @@ function Content(data: any) {
                             <p>Cotacao do dolar: ${dolarValue} = R$ {Math.round(valorDoDolar * 100) / 100}</p>
                         </div>
                     </footer>
-
-                </div>)}
-        </div>)
+                </div>
+            )}
+        </div>
+    )
 }
 
 export default Content
