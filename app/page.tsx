@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <main>
       <header>
-        <div>stone currency</div>
+        <h1>Stone currency</h1>
       </header>
 
       <div>
@@ -51,8 +51,13 @@ export default function Home() {
 
         <button onClick={() => setResult(buyingOption == 'cash' ? buyingWithCash(dolarValue, inputTax, 5, 1) : buyingWithCard(dolarValue, inputTax, 5.3, 5))}>Converter</button>
 
-        {/* <div>buying option: {buyingOption}</div> */}
-        <div>O resultado do calculo e: R$ {result}</div>
+        <footer style={{marginTop: "50px"}}>
+          <div>O resultado do calculo e: R$ {result}</div>
+          <div>
+            <p>Compra no dinehiro e taxa de {inputTax}%</p>
+            <p>Cotacao do dolar: ${dolarValue} = R$ {"TODO"}</p>
+          </div>
+        </footer>
       </div>
     </main>
   );
